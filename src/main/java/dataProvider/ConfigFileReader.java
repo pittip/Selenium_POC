@@ -53,6 +53,16 @@ public class ConfigFileReader {
         }
     }
 
+    public String getApplicationURL(){
+        String url = properties.getProperty("applicationURL");
+        if(url != null){
+            return url;
+        }
+        else {
+            throw new RuntimeException("applicationURL not specified in Configuration.properties file");
+        }
+    }
+
     public DriverType getBrowser(){
         String browser = properties.getProperty("browser");
 

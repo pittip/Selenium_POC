@@ -40,7 +40,7 @@ public class WebDriverManager {
         return driver;
     }
 
-    public void exitDriver(){
+    public static void exitDriver(){
         driver.quit();
     }
 
@@ -54,5 +54,4 @@ public class WebDriverManager {
 
         return browserDetails;
     }
-
 }

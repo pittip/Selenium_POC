@@ -2,7 +2,11 @@ package runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+
+import static managers.WebDriverManager.exitDriver;
+import static reporting.Reports.writeInfoToReport;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -13,6 +17,15 @@ import org.junit.runner.RunWith;
 )
 
 public class MyRunner {
-
-
+    @AfterClass
+    public static void runExtentReport(){
+        writeInfoToReport();
+        exitDriver();
+        try {
+            Thread.sleep(5000);
+            Runtime.getRuntime().exec("firefox target/cucumber-reports/report.html");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
