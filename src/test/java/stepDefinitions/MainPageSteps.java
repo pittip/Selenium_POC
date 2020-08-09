@@ -2,7 +2,6 @@ package stepDefinitions;
 
 import cucumber.TestContext;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import pageObjects.MainPage;
 
 public class MainPageSteps {
@@ -20,8 +19,8 @@ public class MainPageSteps {
         mainPage.clickOnABLink();
     }
 
-    @Then("^I check that header is displayed as expected$")
-    public void checkHeader(){
-
+    @Given("^I click on Add/Remove Elements link$")
+    public void clickOnAddRemoveElementsLink(){
+        mainPage.clickOnAddRemoveElementsLink();
     }
 }

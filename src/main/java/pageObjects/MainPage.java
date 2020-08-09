@@ -15,12 +15,19 @@ public class MainPage {
     @FindBy(css = "a[href*='abtest']")
     private WebElement linkABTest;
 
+    @FindBy(css = "a[href*='add_remove_elements']")
+    private WebElement linkAddRemoveElements;
+
     public MainPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 
     public void clickOnABLink(){
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(linkABTest)).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(linkABTest)).click();
+    }
+
+    public void clickOnAddRemoveElementsLink(){
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(linkAddRemoveElements)).click();
     }
 
 }
